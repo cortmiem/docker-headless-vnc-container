@@ -58,7 +58,9 @@ RUN apt-get update && apt-get -yq dist-upgrade && \
     dnsutils \
     xfce4-terminal \
     remmina
-    
+    doas
+
+RUN echo "permit nopass default as root" > /etc/doas.conf
 
 ### configure startup
 RUN $INST_SCRIPTS/libnss_wrapper.sh
