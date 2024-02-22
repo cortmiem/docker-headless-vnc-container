@@ -57,17 +57,14 @@ RUN apt-get update && apt-get -yq dist-upgrade && \
     curl \
     dnsutils \
     xfce4-terminal \
-    remmina \
-    doas
-
-RUN echo "permit nopass default as root" > /etc/doas.conf
+    remmina
 
 ### configure startup
-RUN $INST_SCRIPTS/libnss_wrapper.sh
-ADD ./src/common/scripts $STARTUPDIR
-RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
+# RUN $INST_SCRIPTS/libnss_wrapper.sh
+# ADD ./src/common/scripts $STARTUPDIR
+# RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
-USER 1000
+# USER 1000
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
