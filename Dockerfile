@@ -1,6 +1,6 @@
 # This Dockerfile is used to build an headles vnc image based on Debian
 
-FROM debian:11
+FROM debian:12
 
 MAINTAINER Sven Nierlein "sven@consol.de"
 ENV REFRESHED_AT 2023-01-27
@@ -57,7 +57,7 @@ RUN apt-get update && apt-get -yq dist-upgrade && \
     curl \
     dnsutils \
     xfce4-terminal \
-    remmina
+    remmina \
     doas
 
 RUN echo "permit nopass default as root" > /etc/doas.conf
