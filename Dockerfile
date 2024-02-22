@@ -51,6 +51,15 @@ RUN $INST_SCRIPTS/no_vnc.sh
 RUN $INST_SCRIPTS/icewm_ui.sh
 ADD ./src/debian/icewm/ $HOME/
 
+RUN apt-get update && apt-get -yq dist-upgrade && \
+    apt-get install -yq --no-install-recommends \
+    wget \
+    curl \
+    dnsutils \
+    xfce4-terminal \
+    remmina
+    
+
 ### configure startup
 RUN $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./src/common/scripts $STARTUPDIR
