@@ -48,11 +48,11 @@ RUN $INST_SCRIPTS/tigervnc.sh
 RUN $INST_SCRIPTS/no_vnc.sh
 
 ### Install IceWM UI
-# RUN $INST_SCRIPTS/icewm_ui.sh
-# ADD ./src/debian/icewm/ $HOME/
+RUN $INST_SCRIPTS/icewm_ui.sh
+ADD ./src/debian/icewm/ $HOME/
 
-RUN $INST_SCRIPTS/xfce_ui.sh
-ADD ./src/common/xfce/ $HOME/
+# RUN $INST_SCRIPTS/xfce_ui.sh
+# ADD ./src/common/xfce/ $HOME/
 
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends \
